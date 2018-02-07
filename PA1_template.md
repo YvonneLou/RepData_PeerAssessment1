@@ -97,7 +97,7 @@ dat2$wd<-as.POSIXlt(as.Date(dat2$date))$wday
 dat2$wd2<-ifelse(dat2$wd==0 | dat2$wd==6, "Weekend", "Weekday")
 avg2<-with(dat2, aggregate(steps~interval+wd2,FUN = mean))
 library(ggplot2)
-qplot(interval,steps,data=avg2,geom="line",color=wd2, main = "Average steps by Weekday and Weekend")
+qplot(interval,steps,data=avg2,geom="line",facets =wd2~., main = "Average steps by Weekday and Weekend")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
